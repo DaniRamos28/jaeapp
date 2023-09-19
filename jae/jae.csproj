@@ -45,7 +45,6 @@
 
   <ItemGroup>
     <None Include="Areas\Identity\Pages\Index.cshtml" />
-    <None Include="Views\Home\Index1.cshtml" />
     <None Include="Areas\Identity\Pages\reports.cshtml" />
     <None Include="Views\Responses\Index1.cshtml" />
   </ItemGroup>
