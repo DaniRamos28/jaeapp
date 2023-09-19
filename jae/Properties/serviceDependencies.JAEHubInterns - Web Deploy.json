@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DefaultConnection"
+    },
+    "mssql2": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/JAEHubInterns/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsApplicationDbConnection_3DBD634312",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/jaedbserver/databases/Jaehub",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:ApplicationDbConnectionString"
+    }
+  }
+}

@@ -1,0 +1,169 @@
+﻿#active {
+    color: #0096FF;
+    background-color: #1b412dcc;
+    transform: scale(1);
+}
+
+
+/*for logo border*/
+
+#logo {
+    float: right !important;
+}
+
+.navbar-toggler-icon {
+    color: white;
+}
+
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+
+.dataTables_scrollHead {
+    overflow: hidden;
+}
+
+.dataTables_scrollHeadInner table {
+    width: 100%;
+}
+
+#active:hover {
+    color: none;
+    background-color: none;
+    transition: none;
+    border-right: none;
+}
+
+
+
+.van .navbar-brand {
+    font-size: 40px !important;
+    cursor: default !important;
+    color: white !important;
+}
+
+#titulo {
+    margin-left: 200px;
+    display: flex;
+    position: absolute;
+}
+
+
+
+.nav-link {
+    color: white !important;
+}
+
+.van2 .navbar-toggler-icon {
+    color: white;
+    height: 20px;
+}
+
+.navbar .navbar-toggler-icon {
+    color: rgb(255, 255, 255);
+}
+
+
+
+.navbar a:hover {
+    color: white !important;
+    background-color: #008f0085;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+
+
+#actibo {
+    border-radius: 5px;
+    background-color: #0b8d0f;
+    border: 2px solid #ffffff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+
+
+/*****************************************main contents (card content)*******************************/
+
+.jumbotron {
+    border-radius: 3px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* table adjustments*/
+
+.thead {
+    background-color: #449049 !important;
+    color: #fff !important;
+}
+
+
+
+#idtable {
+    
+    overflow: hidden;
+    overflow-x: scroll;
+    
+    /*overflow-y: scroll;*/
+}
+
+/* border bottom line of the form title*/
+
+.formtitle {
+    border-bottom: 1px solid #4caf50 !important;
+}
+
+
+/*descriptions on form style*/
+
+.descriptions {
+    background-color: #449049;
+    color: #fff;
+    margin-top: 3px;
+}
+
+
+/* button position on card*/
+
+.btnmove {
+    float: right !important;
+}
+
+#btn3:hover {
+    border: 2px solid #008f0085 !important;
+    background-color: #ffffff;
+    transition: .2s ease-in-out;
+    color: #008f0085;
+    font-weight: bold;
+}
+
+.active {
+    background-color: #1b412dcc;
+    border-radius: 5px;
+}
+
+
+html,
+body,
+header,
+#pic {
+    background-image: url("../lib/cover2.PNG");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.view {
+    background-image: url("~/lib/cover2.PNG");
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}

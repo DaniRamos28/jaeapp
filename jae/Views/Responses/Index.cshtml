@@ -1,0 +1,186 @@
+﻿@model List<jae.Models.Domain.Responses>
+@{
+}
+
+
+<div>
+    <div class="container-fluid " style =" background-color: white;">
+                <form method="post" asp-controller="Responses" asp-action="Index" enctype="multipart/form-data">
+                    <h4 class = "container-fluid text-center d-flex justify-content-center align-items-center" style =" color: white;">JAE HUB INTERNS FORM</h4>
+                    <div class="table-responsive-l " id="idtable">
+                    <table class="table" id="myTable" style = "text-align: center;">
+                        <thead class="thead">
+                            <tr>
+                            <th scope="col">NAME</th>
+                            <th scope="col">COURSE</th>
+                            <th scope="col">SCHOOL</th>
+                            <th scope="col">C.P NUMBER</th>
+                            <th scope="col">WORK FROM HOME?</th>
+                            <th scope="col">DATE START</th>
+                            <th scope="col">RENDER HRS</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">ADDRESS</th>
+                            <th scope="col">RESUME</th>
+                            <th scope="col">DATE RESPONSED</th>
+                            <th scope="col">STATUS</th>
+                            <th scope="col">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody style = "background-color: rgba(0, 0, 0, 0.8);">
+                                
+                                        
+                        </tbody>
+                        </table>
+                        <span>Import Excel File</span><input type="file" name="excelfile"/>
+                        <br/>
+                        <button type="submit" value="Import" class= "btn btn-primary">Upload</button>
+                </div>
+                </form>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+            <script>
+            var js = jQuery.noConflict(true);
+            js(document).ready(function () {
+                js('#myTable').DataTable({
+                    "ajax": {
+                        "url": "/Responses/GetList",
+                        "type": "GET",
+                        "datatype": "json"
+                    },
+                    "columns": [
+                        { "data": "name" },  
+                        { "data": "course" }, 
+                        { "data": "school" }, 
+                        { "data": "number" },   
+                        { "data": "wfhft" },            
+                        {
+                "data": "datestart",
+                "render": function (data, type, row) {
+                    var date = new Date(data);
+                    return date.toISOString().split('T')[0];
+                }
+            },
+                        { "data": "renderhrs" },
+                        { "data": "email" },    
+                        { "data": "address" },  
+                        { "data": "resume" },           
+                        {
+                "data": "response",
+                "render": function (data, type, row) {
+                    var date = new Date(data);
+                    return date.toLocaleString('en-US');
+                }
+            },
+                        {"data": "status"},
+                                    {
+                "data": "id",  
+                "render": function (data, type, row) {
+                    return '<a type="button" class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5" href="/Responses/View/' + data + '" title="Edit"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i>Edit</a>';
+                }
+            }
+
+                    ],
+                    "columnDefs": [
+                        {
+
+                        }
+                    ],
+                            responsive: true,
+                            fixedHeader: true
+                });
+            });
+
+
+               
+
+                $(document).ready(function(){
+                     
+                
+                                    
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                                
+                for (i = 1; i < tr.length; i++) {
+                    td4 = tr[i].getElementsByTagName("td")[9];
+                    td3 = td4.getElementsByTagName("a")[0].text;
+                                
+                if (td3 === "" || td3 === null){
+                    td4.getElementsByTagName("a")[0].innerHTML = "N/A";
+                }
+                else {
+                    td4.getElementsByTagName("a")[0].innerHTML = "click to view";
+
+                                    
+                }
+                }
+                });
+                // convert table to excel
+                          const date = new Date();
+                          const year = date.getFullYear();
+                          const month = date.getMonth() + 1;
+                          const day = date.getDate();
+                          var d = month + "/" + day + "/" + year;
+                          function exportTableToExcel(
+                            myTable,
+                            filename = "JAEHub Intern RECORD" + d
+                          ) {
+                            var downloadLink;
+                            var dataType = "application/vnd.ms-excel";
+                            var tableSelect = document.getElementById(myTable);
+                            var tableHTML = tableSelect.outerHTML.replace(
+                              / /g,
+                              "%20"
+                            );
+
+                            // Specify file name
+                            filename = filename
+                              ? filename + ".xls"
+                              : "excel_data.xls";
+
+                            // Create download link element
+                            downloadLink = document.createElement("a");
+
+                            document.body.appendChild(downloadLink);
+
+                            if (navigator.msSaveOrOpenBlob) {
+                              var blob = new Blob(["\ufeff", tableHTML], {
+                                type: dataType,
+                              });
+                              navigator.msSaveOrOpenBlob(blob, filename);
+                            } else {
+                              // Create a link to the file
+                              downloadLink.href =
+                                "data:" + dataType + ", " + tableHTML;
+
+                              // Setting the file name
+                              downloadLink.download = filename;
+
+                              //triggering the function
+                              downloadLink.click();
+                            }
+                          }
+                                
+                </script>
+                    <div
+                      class="col-xl-12 d-flex justify-content-center align-items-center"
+                    >
+
+                      <button
+                        type="button"
+                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                        onclick="exportTableToExcel('myTable')"
+                        title="Download"
+                        id="btn3"
+                      >
+                        <i
+                          class="fa fa-arrow-circle-down"
+                          aria-hidden="true"
+                        ></i>
+                        Download
+                      </button>
+                    </div>
+        </div>
+                
+</div>
+
