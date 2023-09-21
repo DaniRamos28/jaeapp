@@ -1,72 +1,72 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<style>
-    #gs {
-        border-radius: 30px;
-        background-color: transparent;
-        border: 2px solid white;
-        color: white;
-        text-align: center;
-        padding: 15px 32px;
-        margin-bottom: 20px;
+﻿    @{
+        ViewData["Title"] = "Home Page";
     }
 
-        #gs:hover {
-            background-color: white;
+    <style>
+        #gs {
             border-radius: 30px;
-            transition: all .5s ease-in-out;
-            color: green;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            text-align: center;
+            padding: 15px 32px;
+            margin-bottom: 20px;
         }
 
-    .dark-card {
-        padding: 50px 30px;
-        background-color: rgba(0, 0, 0, 0.7);
-        border-radius: 10px;
-        color: white;
-    }
+            #gs:hover {
+                background-color: white;
+                border-radius: 30px;
+                transition: all .5s ease-in-out;
+                color: green;
+            }
 
-        .dark-card h5 {
-            font-size: 1.8em;
+        .dark-card {
+            padding: 50px 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            color: white;
         }
 
-        .dark-card p {
-            font-size: 1.2em;
+            .dark-card h5 {
+                font-size: 1.8em;
+            }
+
+            .dark-card p {
+                font-size: 1.2em;
+            }
+
+        .jae-link {
+            color: lightgreen;
         }
 
-    .jae-link {
-        color: lightgreen;
-    }
+        .custom-container {
+            width: 95%;
+            max-width: none;
+            margin: 0 auto;
+        }
+    </style>
 
-    .custom-container {
-        width: 95%;
-        max-width: none;
-        margin: 0 auto;
-    }
-</style>
-
-<div class="custom-container">
-    <div class="row no-gutters">
-        <!--CARD-->
-        <div class="col-xl-12 main">
-            <div class="text-center py-4">
-                <div class="card-body dark-card">
-                    <a href="Responses/Add" class="btn btn-success" id="gs">Get Started</a>
-                    <h5 class="mt-4 mb-4">
-                        JAE Hub is composed of passionate young Professionals that share the same dream of working towards their main goal of helping people learn and grow with technology to succeed in their different lines of business.
-                    </h5>
-                    <p>
-                        For more info visit the official website of JAE Hub.
-                        <br>
-                        <a href="https://jaehubservices.com" class="btn btn-success jae-link">Click here</a>
-                    </p>
+    <div class="custom-container">
+        <div class="row no-gutters">
+            <!--CARD-->
+            <div class="col-xl-12 main">
+                <div class="text-center py-4">
+                    <div class="card-body dark-card">
+                        <a href="Responses/Add" class="btn btn-success" id="gs">Get Started</a>
+                        <h5 class="mt-4 mb-4">
+                            JAE Hub is composed of passionate young Professionals that share the same dream of working towards their main goal of helping people learn and grow with technology to succeed in their different lines of business.
+                        </h5>
+                        <p>
+                            For more info visit the official website of JAE Hub.
+                            <br>
+                            <a href="https://jaehubservices.com" class="btn btn-success jae-link">Click here</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
