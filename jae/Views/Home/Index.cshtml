@@ -4,57 +4,65 @@
 
 <style>
     #gs {
-        border-radius: 30px; 
-        background-color: transparent; 
-        border: 2px solid white; 
+        border-radius: 30px;
+        background-color: transparent;
+        border: 2px solid white;
         color: white;
         text-align: center;
-        padding: 15px 32px
+        padding: 15px 32px;
+        margin-bottom: 20px;
+    }
 
+        #gs:hover {
+            background-color: white;
+            border-radius: 30px;
+            transition: all .5s ease-in-out;
+            color: green;
+        }
+
+    .dark-card {
+        padding: 50px 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        color: white;
     }
-    #gs:hover {
-        background-color: white;
-        border-radius: 30px;
-        transition: all .5s ease-in-out;
-        color: green;
+
+        .dark-card h5 {
+            font-size: 1.8em;
+        }
+
+        .dark-card p {
+            font-size: 1.2em;
+        }
+
+    .jae-link {
+        color: lightgreen;
     }
-    
+
+    .custom-container {
+        width: 95%;
+        max-width: none;
+        margin: 0 auto;
+    }
 </style>
 
-<div>
-    <div class="container-fluid">
-        <div class="row no-gutters">
-
-
-            <!--CARD-------------------------------------------------------------------------------------------->
-
-            <div class="col-xl-15 main">                    
-                <div class="container-fluid text-center" ><br><br>
-                   
-                    <div class="card-body" style = "background-color: rgba(0, 0, 0, 0.7); border-radius: 10px;  color: white;" >
-                        <a type="button" href="Responses/Add" class="button" id="gs">Get Started</a>
-                        <br />
-                        <br />
-                        <h5>JAE Hub is composed of passionate young Professionals that shares the same dream of working towards their main goal 
-                            of helping people learn and grow with technology to succeed in their different line of businesses.
-                        </h5>
-                        <br/>
-                        <br/>
-                        <div>
-                        <p> For more info visit the official website of JAE Hub. <br/>
-                            <a href="https://jaehubservices.com" style = "color: lightgreen">Click here</a></p>
-                        </div>
-
-                    </div>
-                   
-                        
-                        
-                    
-                </div>
-                        
+<div class="custom-container">
+    <div class="row no-gutters">
+        <!--CARD-->
+        <div class="col-xl-12 main">
+            <div class="text-center py-4">
+                <div class="card-body dark-card">
+                    <a href="Responses/Add" class="btn btn-success" id="gs">Get Started</a>
+                    <h5 class="mt-4 mb-4">
+                        JAE Hub is composed of passionate young Professionals that share the same dream of working towards their main goal of helping people learn and grow with technology to succeed in their different lines of business.
+                    </h5>
+                    <p>
+                        For more info visit the official website of JAE Hub.
+                        <br>
+                        <a href="https://jaehubservices.com" class="btn btn-success jae-link">Click here</a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-
-
+</div>

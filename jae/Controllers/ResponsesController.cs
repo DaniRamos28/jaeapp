@@ -9,6 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using ExcelDataReader;
 using System.Globalization;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace jae.Controllers
 {
@@ -22,6 +26,41 @@ namespace jae.Controllers
             _applicationDbContext = applicationDbContext;
             _hostingEnvironment = hostingEnvironment;
         }
+        //admin log in ito
+        [HttpGet]
+        public IActionResult AdminLogin()
+        {
+            return View();
+        }
+
+        // Add this action for handling admin login
+        [HttpPost]
+        public async Task<IActionResult> AdminLogin(string username, string password)
+        {
+            // Implement admin authentication logic here
+            if (username == "admin" && password == "password123")
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, username)
+                };
+
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                return RedirectToAction("Index", "Responses"); // Redirect to the Responses controller's Index action
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Invalid username or password.";
+                return View();
+            }
+        }
+
+        // Add this attribute to restrict access to authenticated users
+        [Authorize]
 
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -247,6 +286,7 @@ namespace jae.Controllers
             }
 
              return responses;
+
         }
     }
 }
