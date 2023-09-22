@@ -2,49 +2,54 @@
         ViewData["Title"] = "Home Page";
     }
 
-    <style>
-        #gs {
-            border-radius: 30px;
-            background-color: transparent;
-            border: 2px solid white;
-            color: white;
-            text-align: center;
-            padding: 15px 32px;
-            margin-bottom: 20px;
+<style>
+    .btn-gs {
+        border-radius: 30px;
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+        text-align: center;
+        padding: 15px 32px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+    }
+
+        .btn-gs:hover {
+            background-color: white;
+            color: green;
         }
 
-            #gs:hover {
-                background-color: white;
-                border-radius: 30px;
-                transition: all .5s ease-in-out;
-                color: green;
-            }
+    .dark-card {
+        padding: 50px 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        color: white;
+    }
 
-        .dark-card {
-            padding: 50px 30px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            color: white;
+        .dark-card h5 {
+            font-size: 1.8rem;
         }
 
-            .dark-card h5 {
-                font-size: 1.8em;
-            }
-
-            .dark-card p {
-                font-size: 1.2em;
-            }
-
-        .jae-link {
-            color: lightgreen;
+        .dark-card p {
+            font-size: 1.2rem;
         }
 
-        .custom-container {
-            width: 95%;
-            max-width: none;
-            margin: 0 auto;
+    .jae-link {
+        color: lightgreen;
+        cursor: pointer;
+    }
+
+        .jae-link:hover {
+            text-decoration: underline;
         }
-    </style>
+
+    .custom-container {
+        width: 95%;
+        max-width: none;
+        margin: 0 auto;
+    }
+</style>
 
     <div class="custom-container">
         <div class="row no-gutters">
