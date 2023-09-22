@@ -13,12 +13,12 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-10">
-            <div class="jumbotron m-1" style="background-color: rgba(0, 0, 0, 0.8); color: white; border-radius: 20px;">
-                <h4 class="text-center">JAE HUB INTERNS FORM</h4>
-                <form action="Add" method="post">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="jumbotron m-1" style="background-color: rgba(0, 0, 0, 0.8); color: white; border-radius: 20px;">
+                    <h4 class="text-center">JAE HUB INTERNS FORM</h4>
+                    <form action="Add" method="post">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name:</label>
                             <div class="input-group">
@@ -148,11 +148,11 @@
                             </div>
                             <span id="emailValidation" asp-validation-for="Email" class="text-danger"></span>
                         </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Address:</label>
-                        <textarea id="address" asp-for="Address" class="form-control" rows="4" required></textarea>
-                        <span asp-validation-for="Address" class="text-danger"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address:</label>
+                            <textarea id="address" asp-for="Address" class="form-control" rows="4" required></textarea>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
                         <div class="mb-3">
                             <label for="resume" class="form-label">Resume:</label>
                             <div class="input-group">
@@ -187,19 +187,19 @@
                             </div>
                             <span asp-validation-for="Status" class="text-danger"></span>
                         </div>
-                    <div class="text-center">
-                        <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+                        <div class="text-center">
+                            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 
 
 </body>

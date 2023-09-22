@@ -49,8 +49,10 @@ input {
     height: 20px;
 }
 
+
+
 .navbar .navbar-toggler-icon {
-    color: rgb(255, 255, 255);
+    color: white;
 }
 
 .navbar a:hover {
