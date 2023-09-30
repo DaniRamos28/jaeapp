@@ -1,169 +1,146 @@
-﻿#active {
-    color: #0096FF;
-    background-color: #1b412dcc;
-    transform: scale(1);
+﻿a {
+    text-decoration: none;
+    color:white;
 }
 
-
-/*for logo border*/
-
-#logo {
-    float: right !important;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #18181B;
+    /*background-image: linear-gradient(#353D2F, #6BA368);*/
 }
 
-.navbar-toggler-icon {
+p {
+    max-width:500px;
+}
+
+.apply {
     color: white;
+    padding: 10px;
+    background-color: #1d4ed8;
 }
 
-
-.table-responsive {
-    overflow-x: auto;
-}
-
-
-.dataTables_scrollHead {
-    overflow: hidden;
-}
-
-.dataTables_scrollHeadInner table {
-    width: 100%;
-}
-
-#active:hover {
-    color: none;
-    background-color: none;
-    transition: none;
-    border-right: none;
-}
-
-
-
-.van .navbar-brand {
-    font-size: 40px !important;
-    cursor: default !important;
-    color: white !important;
-}
-
-#titulo {
-    margin-left: 200px;
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
     display: flex;
-    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
-
-
-.nav-link {
-    color: white !important;
+.nav-logo {
+    max-width: 100px;
 }
 
-.van2 .navbar-toggler-icon {
-    color: white;
-    height: 20px;
-}
-
-.navbar .navbar-toggler-icon {
-    color: rgb(255, 255, 255);
-}
-
-
-
-.navbar a:hover {
-    color: white !important;
-    background-color: #008f0085;
-    border-radius: 5px;
-    transition: all .5s ease-in-out;
-}
-
-
-
-#actibo {
-    border-radius: 5px;
-    background-color: #0b8d0f;
-    border: 2px solid #ffffff;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}
-
-
-
-/*****************************************main contents (card content)*******************************/
-
-.jumbotron {
-    border-radius: 3px !important;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-
-/* table adjustments*/
-
-.thead {
-    background-color: #449049 !important;
-    color: #fff !important;
-}
-
-
-
-#idtable {
-    
-    overflow: hidden;
-    overflow-x: scroll;
-    
-    /*overflow-y: scroll;*/
-}
-
-/* border bottom line of the form title*/
-
-.formtitle {
-    border-bottom: 1px solid #4caf50 !important;
-}
-
-
-/*descriptions on form style*/
-
-.descriptions {
-    background-color: #449049;
-    color: #fff;
-    margin-top: 3px;
-}
-
-
-/* button position on card*/
-
-.btnmove {
-    float: right !important;
-}
-
-#btn3:hover {
-    border: 2px solid #008f0085 !important;
-    background-color: #ffffff;
-    transition: .2s ease-in-out;
-    color: #008f0085;
-    font-weight: bold;
-}
-
-.active {
-    background-color: #1b412dcc;
-    border-radius: 5px;
-}
-
-
-html,
-body,
-header,
-#pic {
-    background-image: url("../lib/cover2.PNG");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-.view {
-    background-image: url("~/lib/cover2.PNG");
-    color: #fff;
-    width: 100%;
+.nav-links {
+    list-style: none;
     display: flex;
-    justify-content: center;
+    gap: 3rem;
+}
+
+.link a {
     position: relative;
+    padding-bottom: 0.75rem;
+    text-decoration:none;
+    color: white;
+}
+
+    .link a::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #1d4ed8;
+        transition: all 0.3s ease;
+    }
+
+    .link a:hover::after {
+        width: 70%;
+    }
+
+.btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight:bold;
+    color: white;
+    background-color: #1d4ed8;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration:none;
+   
+}
+
+    .btn:hover {
+        background-color: #1e40af;
+    }
+
+.container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 5rem 2rem;
+}
+
+.blur {
+    position: absolute;
+    box-shadow: 0 0 1000px 50px #1d4ed8;
+    z-index: -100;
+}
+
+header {
+    position: relative;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+    header .content h4 {
+        margin-bottom: 1rem;
+        color: #ccc;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    header .content h1 {
+        color: #fff;
+        margin-bottom: 1rem;
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 4rem;
+    }
+
+        header .content h1 span {
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #fff;
+        }
+
+    header .content p {
+        margin-bottom: 2rem;
+        color: #ccc;
+    }
+
+    header .image {
+        position: relative;
+    }
+
+        header .image img {
+            max-width: 600px;
+            margin: auto;
+        }
+
+section .header {
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+.intern {
+    border-radius:40px;
 }
