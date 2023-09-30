@@ -99,7 +99,7 @@ namespace jae.Controllers
                     Email = addIntern.Email,
                     Address = addIntern.Address,
                     Resume = addIntern.Resume,
-                    Status = addIntern.Status
+                    Status = "Pending"
                 };
 
                 try

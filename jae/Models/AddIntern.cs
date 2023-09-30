@@ -41,7 +41,6 @@ namespace jae.Models
         [Required(ErrorMessage = "Resume is required.")]
         public string? Resume { get; set; }
 
-        [Required(ErrorMessage = "Status is required.")]
         public string? Status { get; set; }
     }
 }
