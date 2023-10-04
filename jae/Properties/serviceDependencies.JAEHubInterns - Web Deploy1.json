@@ -6,6 +6,11 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/jaedbserver/databases/Jaehub",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:ApplicationDbConnectionString"
+    },
+    "mssql3": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:jaeContextConnection"
     }
   }
 }

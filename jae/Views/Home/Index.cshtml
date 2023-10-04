@@ -48,31 +48,27 @@
 
             <!--CARD-------------------------------------------------------------------------------------------->
 
-            <div class="col-xl-15 main">                    
-                <div class="container-fluid text-center" ><br><br>
-                   
-                    <div class="card-body" style = "background-color: rgba(0, 0, 0, 0.7); border-radius: 10px;  color: white;" >
-                        <a type="button" href="Responses/Add" class="button" id="gs">Get Started</a>
-                        <br />
-                        <br />
-                        <h5>JAE Hub is composed of passionate young Professionals that shares the same dream of working towards their main goal 
-                            of helping people learn and grow with technology to succeed in their different line of businesses.
-                        </h5>
-                        <br/>
-                        <br/>
-                        <div>
-                        <p> For more info visit the official website of JAE Hub. <br/>
-                            <a href="https://jaehubservices.com" style = "color: lightgreen">Click here</a>
-                        </p>
-                        </div>
+    .custom-container {
+        width: 95%;
+        max-width: 1400px; /* Added max-width to ensure content doesn't stretch too much on large screens */
+        margin: 0 auto;
+    }
+</style>
 
-                    </div>
-                   
-                        
-                        
-                    
-                </div>
-                        
+<div class="custom-container mt-5">
+    <div class="row">
+        <!--CARD-->
+        <div class="col-xl-12 main">
+            <div class="text-center py-4">
+                <div class="card-body dark-card">
+                    <button class="btn btn-gs" onclick="location.href='Responses/Add'">Get Started</button>
+                    <h5>
+                        JAE Hub is composed of passionate young Professionals that share the same dream of working towards their main goal of helping people learn and grow with technology to succeed in their different lines of business.
+                    </h5>
+                    <p>
+                        For more info visit the official website of JAE Hub. <br>
+                        <a href="https://jaehubservices.com" class="jae-link">Click here</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -84,3 +80,7 @@
 </header>
 
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
