@@ -22,6 +22,7 @@
     <Content Remove="Areas\Identity\Pages\Index.cshtml" />
     <Content Remove="Views\Home\Index1.cshtml" />
     <Content Remove="Views\Home\reports.cshtml" />
+    <Content Remove="Views\Responses\Add2.cshtml" />
     <Content Remove="Views\Responses\Index1.cshtml" />
     <Content Remove="wwwroot\css\site.css" />
   </ItemGroup>
