@@ -6,90 +6,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAE HUB INTERNS FORM</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5847/viewport-selection-opt.jpg" />
+    <title> Responsive Form </title>
 </head>
 <body>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-10">
-            <div class="jumbotron m-1" style="background-color: rgba(0, 0, 0, 0.8); color: white; border-radius: 20px;">
-                <h4 class="text-center">JAE HUB INTERNS FORM</h4>
-                <form action="Add" method="post">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name:</label>
-                        <input type="text" id="name" asp-for="Name" class="form-control" required>
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="course" class="form-label">Course:</label>
-                        <input type="text" id="course" asp-for="Course" class="form-control" required>
-                        <span asp-validation-for="Course" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="school" class="form-label">School:</label>
-                        <input type="text" id="school" asp-for="School" class="form-control" required>
-                        <span asp-validation-for="School" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="number" class="form-label">Number:</label>
-                        <input type="tel" id="number" asp-for="Number" class="form-control" pattern="[0-9]{11}" placeholder="09123456789" required>
-                        <span asp-validation-for="Number" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Are you willing to work from home?</label>
-                        <select id="wfhft" asp-for="wfhft" class="form-select" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="datestart" class="form-label">Date Start:</label>
-                        <input type="date" id="datestart" asp-for="Datestart" class="form-control" required>
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="renderhrs" class="form-label">Render Hours Needed:</label>
-                        <input type="number" min="1" id="renderhrs" asp-for="Renderhrs" step="1" class="form-control" required>
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input type="email" id="email" asp-for="Email" class="form-control" required>
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Address:</label>
-                        <textarea id="address" asp-for="Address" class="form-control" rows="4" required></textarea>
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="resume" class="form-label">Resume:</label>
-                        <input type="text" id="resume" asp-for="Resume" class="form-control" placeholder="Input link of your resume">
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-
-                    <div class="text-center">
-                        <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+    <form class="form1" action="Add" method="post">
+        <fieldset>
+            <h1 class="regi"> INTERSHIP FORM </h1>
+            <div class="box">
+                <label for="name">Name:</label>
+                <input class="input" type="text" id="name" asp-for="Name" placeholder="Enter Your Full name" required>
+                <span asp-validation-for="Name" class="danger"></span>
             </div>
-        </div>
-    </div>
-</div>
 
+            <div class="box">
+                <label for="course"> Course:</label>
+                <input class="input" type="text" id="course" asp-for="Course" placeholder="Computer Engineering" required>
+                <span asp-validation-for="Course" class="danger"></span>
+            </div>
+
+            <div class="box">
+                <label for="school">School: </label>
+                <input class="input" type="text" id="school" asp-for="School" placeholder="School" required>
+                <span asp-validation-for="School" class="danger"></span>
+            </div>
+
+            <div class="box">
+                <label for="number">Phone Number:</label>
+                <input class="input" type="tel" id="number" asp-for="Number" placeholder="09954136879" required>
+                <span asp-validation-for="Number" class="danger"></span>
+            </div>
+
+             <div class="box">
+                <label for="datestart">Date Start:</label>
+                <input class="input" type="date" id="datestart" asp-for="Datestart" placeholder="dd/mm/yy" required>
+                <span asp-validation-for="Datestart" class="danger"></span>
+            </div>
+
+             <div class="box">
+                <label for="renderhrs">Rendered Hours Needed:</label>
+                <input class="input" type="number" min="100" id="datestart" asp-for="Renderhrs" placeholder="100" required>
+                <span asp-validation-for="Renderhrs" class="danger"></span>
+            </div>
+
+            <div class="box">
+                <label for="email">Email:</label>
+                <input class="input" type="email" id="email" asp-for="Email" placeholder="example@gmail.com" required>
+                <span asp-validation-for="Email" class="danger"></span>
+            </div>
+
+            <div class="box">
+                <label for="address">Address:</label>
+                <input class="input" type="text" id="address" asp-for="Address" required>
+                <span asp-validation-for="Address" class="danger"></span>
+            </div>
+
+            <div class="box">
+                <label>Available for Work from Home setup?</label>
+                <select id="wfhft" asp-for="wfhft" class="form-select" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="wfhft" class="danger"></span>
+            </div>
+
+            <div class="box">
+                <label for="resume">Resume:</label>
+                <input class="input" type="text" id="resume" asp-for="Resume" placeholder="Input Link of your Resume/CV" required>
+                <span asp-validation-for="Resume" class="danger"></span>
+            </div>
+
+        </fieldset>
+        <div class="text-center">
+            <button type="submit" value="Submit" class="btn ">Submit</button>
+        </div>
+
+    </form>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
 <script>

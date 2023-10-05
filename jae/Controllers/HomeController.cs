@@ -17,6 +17,10 @@ namespace jae.Controllers
         {
             return View();
         }
+        public IActionResult Register()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
@@ -30,6 +34,10 @@ namespace jae.Controllers
         }
 
         public IActionResult AboutUs()
+        {
+            return View();
+        }
+        public IActionResult LoginPartial()
         {
             return View();
         }
