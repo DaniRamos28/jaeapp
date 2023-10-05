@@ -59,6 +59,7 @@ namespace jae.Controllers
             }
         }
 
+        // Add this attribute to restrict access to authenticated users
         [Authorize]
 
         [HttpGet]

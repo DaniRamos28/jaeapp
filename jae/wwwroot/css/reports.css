@@ -13,6 +13,24 @@ p {
     max-width:500px;
 }
 
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+#idtable {
+    overflow: hidden;
+    overflow-x: scroll;
+    /*overflow-y: scroll;*/
+}
+.dataTables_scrollHead {
+    overflow: hidden;
+}
+
+.dataTables_scrollHeadInner table {
+    width: 100%;
+}
+
 .apply {
     color: white;
     padding: 10px;
@@ -79,6 +97,7 @@ nav {
     .btn:hover {
         background-color: #1e40af;
     }
+
 
 .container {
     max-width: 1250px;

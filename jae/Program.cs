@@ -33,11 +33,16 @@ else
     app.UseHsts();
 }
 
+
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
+// Place your custom middleware before routing and authentication/authorization
+app.UseMiddleware<RedirectAuthenticatedUsersMiddleware>();
 
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 

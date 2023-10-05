@@ -124,6 +124,11 @@ namespace jae.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                if (Input.Code != "JaeHUBadmin2023!")
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid code. Please enter the correct code.");
+                    return Page();
+                }
                 foreach (var modelState in ModelState.Values)
                 {
                     foreach (var error in modelState.Errors)
@@ -137,7 +142,7 @@ namespace jae.Areas.Identity.Pages.Account
                 user.LastName = Input.LastName;
                 user.Code = Input.Code;
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
