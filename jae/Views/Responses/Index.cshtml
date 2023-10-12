@@ -12,22 +12,16 @@
                     <table class="table" id="myTable" style = "text-align: center;">
                         <thead class="thead">
                             <tr>
+                            <th scope="col"></th>
                             <th scope="col">Name</th>
                             <th scope="col">Course</th>
                             <th scope="col">School</th>
-                            <th scope="col">Phone Number</th>
-                            <th scope="col">Work from Home?</th>
-                            <th scope="col">Date Start</th>
-                            <th scope="col">Hours to be Rendered</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Resume</th>
                             <th scope="col">Date Responded</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody style = "background-color: rgba(0, 0, 0, 0.8);">
+                        <tbody>
 
 
                         </tbody>
@@ -38,6 +32,7 @@
                 </div>
                 </form>
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.0/css/buttons.dataTables.min.css">
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
@@ -49,8 +44,24 @@
             <script src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.print.min.js"></script>
             <script>
             var js = jQuery.noConflict(true);
+            function format(d) {
+                var datestart = new Date(d.datestart);
+                var formattedDate = datestart.toISOString().split('T')[0];
+                
+                return (
+                    '<dl>' +
+                    '<dt>Phone Number: ' + d.number + '</dt>' +
+                    '<dt>Work from Home?: ' + d.wfhft + '</dt>' +
+                    '<dt>Date Start: ' + formattedDate + '</dt>' +
+                    '<dt>Hours to be Rendered: ' + d.renderhrs + '</dt>' +                
+                    '<dt>Email: ' + d.email + '</dt>' +
+                    '<dt>Address: ' + d.address + '</dt>' +
+                    '<dt>Resume: ' + d.resume + '</dt>' +
+                    '</dl>'
+                );
+            }
             js(document).ready(function () {
-                js('#myTable').DataTable({
+                let table = js('#myTable').DataTable({
                     dom: 'Bfrtip',
                     buttons: [
                         'copy', 'excel', 'pdf', 'print'
@@ -61,11 +72,16 @@
                         "datatype": "json"
                     },
                     "columns": [
+                        {
+                            className: 'dt-control',
+                            orderable: false,
+                            data: null,
+                            defaultContent: ''
+                        },
                         { "data": "name" },  
                         { "data": "course" }, 
-                        { "data": "school" }, 
-                        { "data": "number" },   
-                        { "data": "wfhft" },            
+                        { "data": "school" },  
+                        /*{ "data": "wfhft" },            
                         {
                 "data": "datestart",
                 "render": function (data, type, row) {
@@ -76,7 +92,7 @@
                         { "data": "renderhrs" },
                         { "data": "email" },    
                         { "data": "address" },  
-                        { "data": "resume" },           
+                        { "data": "resume" },      */   
                         {
                 "data": "response",
                 "render": function (data, type, row) {
@@ -102,6 +118,19 @@
                             fixedHeader: true
                 });
                 table.buttons().container().appendTo('.buttons-container');
+                table.on('click', 'td.dt-control', function (e) {
+                let tr = e.target.closest('tr');
+                let row = table.row(tr);
+
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                }
+                else {
+                    // Open this row
+                    row.child(format(row.data())).show();
+                }
+});
 
             });
 
