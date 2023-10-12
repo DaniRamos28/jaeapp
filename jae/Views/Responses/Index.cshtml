@@ -15,7 +15,14 @@
                             <th scope="col"></th>
                             <th scope="col">Name</th>
                             <th scope="col">Course</th>
-                            <th scope="col">School</th>
+                            <th scope="col" data-hidden="true" hidden>School</th>
+                            <th scope="col" data-hidden="true" hidden>Phone Number</th>
+                            <th scope="col" data-hidden="true" hidden>Work from Home?</th>
+                            <th scope="col" data-hidden="true" hidden>Hours to be Rendered</th>
+                            <th scope="col" data-hidden="true" hidden>Email</th>
+                            <th scope="col" data-hidden="true" hidden>Address</th>
+                            <th scope="col" data-hidden="true" hidden>Resume</th>
+                            <th scope="col" data-hidden="true" hidden>Date Start</th>
                             <th scope="col">Date Responded</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
@@ -50,6 +57,7 @@
                 
                 return (
                     '<dl>' +
+                    '<dt>School: ' + d.school + '</dt>' +
                     '<dt>Phone Number: ' + d.number + '</dt>' +
                     '<dt>Work from Home?: ' + d.wfhft + '</dt>' +
                     '<dt>Date Start: ' + formattedDate + '</dt>' +
@@ -81,7 +89,8 @@
                         { "data": "name" },  
                         { "data": "course" }, 
                         { "data": "school" },  
-                        /*{ "data": "wfhft" },            
+                        { "data": "number" }, 
+                        { "data": "wfhft" },            
                         {
                 "data": "datestart",
                 "render": function (data, type, row) {
@@ -92,7 +101,7 @@
                         { "data": "renderhrs" },
                         { "data": "email" },    
                         { "data": "address" },  
-                        { "data": "resume" },      */   
+                        { "data": "resume" },        
                         {
                 "data": "response",
                 "render": function (data, type, row) {
@@ -111,7 +120,8 @@
                     ],
                     "columnDefs": [
                         {
-
+                            targets: [3, 4, 5, 6, 7, 8, 9, 10], 
+                            visible: false
                         }
                     ],
                             responsive: true,
