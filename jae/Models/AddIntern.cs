@@ -39,7 +39,8 @@ namespace jae.Models
         public string? Address { get; set; }
 
         [Required(ErrorMessage = "Resume is required.")]
-        public string? Resume { get; set; }
+        public IFormFile? Resume { get; set; }
+
 
         public string? Status { get; set; }
     }

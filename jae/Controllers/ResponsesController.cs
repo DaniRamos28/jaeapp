@@ -86,6 +86,28 @@ namespace jae.Controllers
         {
             if (ModelState.IsValid)
             {
+                string? resumeFileName = null;
+                if (addIntern.Resume != null && addIntern.Resume.Length > 0)
+                {
+                    // Generate a unique file name (you can customize the file naming strategy)
+                    resumeFileName = Guid.NewGuid().ToString() + Path.GetExtension(addIntern.Resume.FileName);
+
+                    // Define the directory where the resumes will be saved (adjust this path as needed)
+                    string resumeDirectory = Path.Combine(_hostingEnvironment.WebRootPath, "resumes");
+
+                    // Combine the directory and file name to create the full path
+                    string resumeFilePath = Path.Combine(resumeDirectory, resumeFileName);
+
+                    // Create the directory if it doesn't exist
+                    Directory.CreateDirectory(resumeDirectory);
+
+                    // Save the uploaded resume to the specified file path
+                    using (var fileStream = new FileStream(resumeFilePath, FileMode.Create))
+                    {
+                        await addIntern.Resume.CopyToAsync(fileStream);
+                    }
+                }
+
                 var intern = new Responses()
                 {
                     Response = DateTime.Now,
@@ -98,7 +120,7 @@ namespace jae.Controllers
                     Renderhrs = addIntern.Renderhrs,
                     Email = addIntern.Email,
                     Address = addIntern.Address,
-                    Resume = addIntern.Resume,
+                    Resume = resumeFileName,
                     Status = "Pending"
                 };
 
@@ -112,10 +134,13 @@ namespace jae.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "An error occurred while adding the response: " + ex.Message);
                 }
+
             }
 
             return View(addIntern);
         }
+
+
         [HttpPost]
         public async Task<IActionResult> Index(IFormFile excelfile, [FromServices] IWebHostEnvironment hostingEnvironment)
         {
@@ -147,6 +172,22 @@ namespace jae.Controllers
            
             return View();
         }
+
+        public IActionResult DownloadResume(string filename)
+        {
+            if (!string.IsNullOrEmpty(filename))
+            {
+                var file = Path.Combine(_hostingEnvironment.WebRootPath, "resumes", filename);
+
+                if (System.IO.File.Exists(file))
+                {
+                    return File(System.IO.File.OpenRead(file), "application/octet-stream", filename);
+                }
+            }
+
+            return NotFound();
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> View(int id)
@@ -267,9 +308,9 @@ namespace jae.Controllers
                             Renderhrs = reader.GetString(7),
                             Email = reader.GetString(8),
                             Address = reader.GetString(9),
-                            Resume = reader.GetString(10),
-
+                            Resume = reader.GetString(10), 
                         };
+
                         responses.Add(response);
                     }
                 }

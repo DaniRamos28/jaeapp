@@ -11,7 +11,7 @@
     <title> Responsive Form </title>
 </head>
 <body>
-    <form class="form1" action="Add" method="post">
+    <form class="form1" action="Add" method="post" enctype="multipart/form-data">
         <fieldset>
             <h1 class="regi"> INTERSHIP FORM </h1>
             <div class="box">
@@ -46,7 +46,7 @@
 
              <div class="box">
                 <label for="renderhrs">Rendered Hours Needed:</label>
-                <input class="input" type="number" min="100" id="datestart" asp-for="Renderhrs" placeholder="100" required>
+                <input class="input" type="number" min="100" id="renderhrs" asp-for="Renderhrs" placeholder="100" required>
                 <span asp-validation-for="Renderhrs" class="danger"></span>
             </div>
 
@@ -73,7 +73,7 @@
 
             <div class="box">
                 <label for="resume">Resume:</label>
-                <input class="input" type="text" id="resume" asp-for="Resume" placeholder="Input Link of your Resume/CV" required>
+                <input class="input" type="file" id="resume" asp-for="Resume" placeholder="Upload your Resume/CV here" >
                 <span asp-validation-for="Resume" class="danger"></span>
             </div>
 

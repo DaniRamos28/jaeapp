@@ -78,4 +78,9 @@
     <UpToDateCheckInput Remove="Views\Responses\Index1.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\resumes\" />
+    <Folder Include="wwwroot\NewFolder\" />
+  </ItemGroup>
+
 </Project>

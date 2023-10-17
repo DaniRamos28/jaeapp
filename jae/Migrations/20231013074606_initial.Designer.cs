@@ -12,8 +12,8 @@ using jae.Data;
 namespace jae.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230929035713_Initial")]
-    partial class Initial
+    [Migration("20231013074606_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -134,6 +134,7 @@ namespace jae.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Resume")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("School")

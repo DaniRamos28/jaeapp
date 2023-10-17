@@ -1,13 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
+
 
 namespace jae.Models.Domain
 {
     public class Responses
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         public DateTime? Response { get; set; }
         public string? Name { get; set; }
         public string? Course { get; set; }
@@ -18,7 +21,8 @@ namespace jae.Models.Domain
         public string? Renderhrs { get; set; }
         public string? Email { get; set; }
         public string? Address { get; set; }
-        public string? Resume { get; set; }
+        public string? Resume { get; set; } 
+
         public string? Status { get; set; }
     }
 }

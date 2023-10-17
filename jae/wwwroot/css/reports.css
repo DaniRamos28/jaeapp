@@ -13,7 +13,7 @@ p {
     max-width:500px;
 }
 
-
+/*
 .table-responsive {
     overflow-x: auto;
 }
@@ -21,8 +21,9 @@ p {
 #idtable {
     overflow: hidden;
     overflow-x: scroll;
-    /*overflow-y: scroll;*/
+    overflow-y: scroll;
 }
+
 .dataTables_scrollHead {
     overflow: hidden;
 }
@@ -30,7 +31,7 @@ p {
 .dataTables_scrollHeadInner table {
     width: 100%;
 }
-
+    */
 .apply {
     color: white;
     padding: 10px;

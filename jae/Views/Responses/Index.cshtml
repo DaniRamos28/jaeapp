@@ -54,6 +54,14 @@
             function format(d) {
                 var datestart = new Date(d.datestart);
                 var formattedDate = datestart.toISOString().split('T')[0];
+                var resumeLink;
+                if (d.resume.includes("drive.google.com")) {
+                    // Handle Google Drive link
+                    resumeLink = '<a href="' + d.resume + '" target="_blank">View on Google Drive</a>';
+                } else {
+                    // Handle document (PDF or DOCX)
+                    resumeLink = '<a href="/Responses/DownloadResume?filename=' + d.resume + '">click to view</a>';
+                }
                 
                 return (
                     '<dl>' +
@@ -64,7 +72,7 @@
                     '<dt>Hours to be Rendered: ' + d.renderhrs + '</dt>' +                
                     '<dt>Email: ' + d.email + '</dt>' +
                     '<dt>Address: ' + d.address + '</dt>' +
-                    '<dt>Resume: ' + d.resume + '</dt>' +
+                    '<dt>Resume:' + resumeLink + '</dt>'  +
                     '</dl>'
                 );
             }
