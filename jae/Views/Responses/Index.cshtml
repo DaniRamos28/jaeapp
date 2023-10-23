@@ -2,12 +2,25 @@
 @model List<jae.Models.Domain.Responses>
 @{
 }
+<style>
 
+
+    .dt-button {
+        background: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%) !important;
+        color: white !important;
+    }
+
+    .dt-button:hover {
+        background: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%) !important;
+        color: yellow !important;
+    }
+
+</style>
 
 <div>
-    <div class="container-fluid " style =" background-color: white;">
+    <div class="container-fluid " style="background: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%); color: white;">
                 <form method="post" asp-controller="Responses" asp-action="Index" enctype="multipart/form-data">
-                    <h4 class = "container-fluid text-center d-flex justify-content-center align-items-center" style =" color: white;">JAE HUB INTERNS FORM</h4>
+                    <h4 class = "container-fluid text-center d-flex justify-content-center align-items-center" style =" color: white;">JAE HUB INTERNS RECORD</h4>
                     <div class="table-responsive-l " id="idtable">
                     <table class="table" id="myTable" style = "text-align: center;">
                         <thead class="thead">
@@ -56,10 +69,10 @@
                 var formattedDate = datestart.toISOString().split('T')[0];
                 var resumeLink;
                 if (d.resume.includes("drive.google.com")) {
-                    // Handle Google Drive link
+                   
                     resumeLink = '<a href="' + d.resume + '" target="_blank">View on Google Drive</a>';
                 } else {
-                    // Handle document (PDF or DOCX)
+                    
                     resumeLink = '<a href="/Responses/DownloadResume?filename=' + d.resume + '">click to view</a>';
                 }
                 
@@ -141,11 +154,11 @@
                 let row = table.row(tr);
 
                 if (row.child.isShown()) {
-                    // This row is already open - close it
+                    
                     row.child.hide();
                 }
                 else {
-                    // Open this row
+                    
                     row.child(format(row.data())).show();
                 }
 });

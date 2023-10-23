@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using jae.Areas.Identity.Data;
+using jae.Areas.Identity.Pages.Account;
 
 namespace jae.Controllers
 {
@@ -20,44 +23,15 @@ namespace jae.Controllers
     {
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly UserManager<jaeUser> _userManager;
 
-        public ResponsesController(ApplicationDbContext applicationDbContext, IWebHostEnvironment hostingEnvironment)
+        public ResponsesController(ApplicationDbContext applicationDbContext, IWebHostEnvironment hostingEnvironment, UserManager<jaeUser> userManager)
         {
             _applicationDbContext = applicationDbContext;
             _hostingEnvironment = hostingEnvironment;
-        }
-        //admin log in ito
-        [HttpGet]
-        public IActionResult AdminLogin()
-        {
-            return View();
+            _userManager = userManager;
         }
 
-        // Add this action for handling admin login
-        [HttpPost]
-        public async Task<IActionResult> AdminLogin(string username, string password)
-        {
-            // Implement admin authentication logic here
-            if (username == "admin" && password == "password123")
-            {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, username)
-                };
-
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
-
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-                return RedirectToAction("Index", "Responses"); // Redirect to the Responses controller's Index action
-            }
-            else
-            {
-                ViewBag.ErrorMessage = "Invalid username or password.";
-                return View();
-            }
-        }
 
         // Add this attribute to restrict access to authenticated users
         [Authorize]
@@ -330,6 +304,11 @@ namespace jae.Controllers
 
         }
     }
+
+ 
+
+
+
 }
 
 
