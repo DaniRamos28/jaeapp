@@ -129,6 +129,13 @@ namespace jae.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, "Invalid code. Please enter the correct code.");
                     return Page();
                 }
+
+                var existingUser = await _userManager.FindByEmailAsync(Input.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError(string.Empty, "An account with this email already exists. Please use a different email.");
+                    return Page();
+                }
                 foreach (var modelState in ModelState.Values)
                 {
                     foreach (var error in modelState.Errors)

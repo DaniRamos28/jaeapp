@@ -16,6 +16,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using jae.Areas.Identity.Data;
 using jae.Areas.Identity.Pages.Account;
+using System.Net.Mail;
+using System.Net;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+
 
 namespace jae.Controllers
 {
@@ -53,6 +57,40 @@ namespace jae.Controllers
         {
             var responses = _applicationDbContext.Responses.ToList();
             return Json(new { data = responses });
+        }
+        [HttpPost]
+        public IActionResult SendEmail(string recipient, string subject, string message)
+        {
+            try
+            {
+                string fromMail = "dnramos011@gmail.com";
+                string fromPassword = "gcagzjnyexpkbuki";
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential(fromMail, fromPassword),
+                    EnableSsl = true,
+                };
+
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("dnramos011@gmail.com"),
+                    Subject = subject,
+                    Body = message,
+                    IsBodyHtml = false,
+                };
+
+                mailMessage.To.Add(recipient);
+
+                smtpClient.Send(mailMessage);
+                return Json(new { result = "success" });
+
+            }
+            catch (Exception ex)
+            {
+                // Handle and log the error
+                return Json(new { result = "error" });
+            }
         }
 
         [HttpPost]
@@ -304,10 +342,6 @@ namespace jae.Controllers
 
         }
     }
-
- 
-
-
 
 }
 
